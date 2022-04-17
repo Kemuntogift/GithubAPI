@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core'; 
+import { DataService } from 'src/app/data-service/data.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
@@ -7,15 +9,26 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class SearchFormComponent implements OnInit {
   username!: string;
+  isEmpty!: boolean;
+  dataService: DataService;
 
-  @Output() profileSearch = new EventEmitter<any>();
-  searchItem: any;
-
-  search() {
-    this.profileSearch.emit(this.searchItem);
+  constructor(dataService: DataService, private router: Router) {
+    this.dataService = dataService;
   }
-  
-  constructor() {}
 
-  ngOnInit(): void {}
+  userSearch() {
+    if (this.username) {
+      this.dataService.getData(this.username);
+      this.router.navigate(['../results']);
+    } else {
+      this.isEmpty = true;
+    }
+  }
+  hideAlert() {
+    this.isEmpty = false;
+  }
+
+  ngOnInit(): void {
+    this.isEmpty = false;
+  }
 }
