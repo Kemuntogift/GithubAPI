@@ -26,7 +26,7 @@ export class SearchFormComponent implements OnInit {
     });
   }
   ngOnInit(): void {}
-  
+
   findProfile() {
     this.display = false;
     this.dataService.updateProfile(this.username);
