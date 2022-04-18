@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form ">
     <form>
         <div class="form-group my-4 ">
             <div class="col ">
@@ -10,12 +10,119 @@
     </form>
 
     <!--Profile-->
+    <!-- search profile -->
+    <div class="container" *ngIf="!display">
+        <div class="row">
+            <div class="col-md-4 mt-5 mx-auto">
 
-    <div>
-        <div class="panel panel-defaut">
+                <div class="profile">
+                    <h4>User Profile</h4>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center ">
+                        <a href="# " class="avatar avatar-xl ">
+                            <img class="rounded-circle " alt="... " src="{{profile.avatar_url}} ">
+                        </a>
+                    </div>
+                    <div class="text-center my-6 ">
+                        <h4>{{profile.login}}</h4> <br>
+                        <span class="d-block text-sm text-mute ">{{profile.bio}}</span>
+                        <span class="d-block text-sm text-muted ">{{profile.email}}</span>
+                    </div>
 
-            <div class="panel-heading">
+                    <br>
+                    <div class="d-flex ">
+                        <div class="col-4 text-center ">
+                            <span class="btn btn-dark btn-sm ">{{profile.public_repos}} Repos</span>
+                        </div>
+                        <div class="col-4 text-center ">
+                            <span class="btn btn-dark btn-sm ">{{profile.followers}} Followers</span>
+                        </div>
+                        <div class="col-4 text-center ">
+                            <span class="btn btn-dark btn-sm ">Following {{profile.following}}</span>
+                        </div>
 
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- End of search profile -->
+
+        <div class="row justify-content-center repo">
+            <h3>Repositories</h3>
+            <div class="col-sm-5 " *ngFor="let repo of repos">
+                <div class="card repocards">
+                    <div class="card-body">
+
+                        <h5 class="card-title" appUnderline> reponame: {{repo.name}}</h5>
+                        <p class="card-text"> description <br> {{repo.description}} <br><br> Language:{{repo.language}}
+                        </p>
+
+                        <a href="{{repo.html_url}}" class="btn btn-dark">view in github</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End of search repo-->
+
     </div>
+
+    <!-- My profile -->
+    <div class="container" *ngIf="display">
+        <div class="row">
+            <div class="col-md-4 mt-5 mx-auto" *ngIf="info">
+
+                <div class="profile">
+                    <h4>User Profile</h4>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center ">
+                        <a href="# " class="avatar avatar-xl ">
+                            <img class="rounded-circle " alt="... " src="{{info.avatar_url}} ">
+                        </a>
+                    </div>
+                    <div class="text-center my-6 ">
+                        <h4>{{info.login}}</h4> <br>
+                        <span class="d-block text-sm text-mute ">{{info.bio}}</span>
+                        <span class="d-block text-sm text-muted ">{{info.email}}</span>
+                    </div>
+
+                    <br>
+                    <div class="d-flex ">
+                        <div class="col-4 text-center ">
+                            <span class="btn btn-dark btn-sm ">{{info.public_repos}} Repos</span>
+                        </div>
+                        <div class="col-4 text-center ">
+                            <span class="btn btn-dark btn-sm ">{{info.followers}} Followers</span>
+                        </div>
+                        <div class="col-4 text-center ">
+                            <span class="btn btn-dark btn-sm ">Following {{info.following}}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of my profile card -->
+
+        <div class="row justify-content-center repo">
+            <h3>Repositories</h3>
+            <div class="col-sm-5 " *ngFor="let repo of repos">
+                <div class="card repocards">
+                    <div class="card-body">
+
+                        <h5 class="card-title" appUnderline> reponame: {{repo.name}}</h5>
+                        <p class="card-text"> description <br> {{repo.description}} <br><br> Language:{{repo.language}}
+                        </p>
+
+                        <a href="{{repo.html_url}}" class="btn btn-dark">view in github</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End of my repo info section -->
+
+    </div>
+</div>
