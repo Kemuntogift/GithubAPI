@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { count } from 'console';
-// import { catchError, retry } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 
 
@@ -19,7 +18,7 @@ export class DataService {
   }
 
   ngOnInit() {
-    // GET request with response type <any>
+  
     this.http.get<any>('https://api.github.com/users').subscribe((data) => {
       this.username = data.total;
       console.log(this.username);
@@ -29,7 +28,7 @@ export class DataService {
   getdata() {
     return this.http.get('https://api.github.com/users/' + this.username);
   }
-  //get repo information
+  //get repo info
   getUserRepos() {
     return this.http.get(
       'https://api.github.com/users/' + this.username + '/repos'

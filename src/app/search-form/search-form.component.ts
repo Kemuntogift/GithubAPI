@@ -11,12 +11,12 @@ export class SearchFormComponent implements OnInit {
   repos: any = [];
   profile: any = [];
   info: any = [];
-  username: any;
+  username: string = '';
   display: any = true;
 
   constructor(private dataService: DataService) {
     this.dataService.getdata().subscribe((info) => {
-      console.log(info);
+      console.log('repos.3' + info);
       this.info = info;
     });
     this.dataService.getUserRepos().subscribe((repos) => {
@@ -37,7 +37,6 @@ export class SearchFormComponent implements OnInit {
       console.log(profile);
       this.profile = profile;
     });
-
     this.dataService.getRepos(this.username).subscribe((repos) => {
       console.log('repos.1' + repos);
       this.repos = repos;
