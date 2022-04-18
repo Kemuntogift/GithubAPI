@@ -83,7 +83,9 @@
                         </a>
                     </div>
                     <div class="text-center my-6 ">
-                        <h4>{{info.login}}</h4> <br>
+                        <h4>{{info.login}}</h4>
+                        <h4>created on:</h4>
+                        {{info.created_at|dateCount }}<br>
                         <span class="d-block text-sm text-mute ">{{info.bio}}</span>
                         <span class="d-block text-sm text-muted ">{{info.email}}</span>
                     </div>
