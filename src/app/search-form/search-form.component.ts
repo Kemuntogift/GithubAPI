@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
+  providers: [DataService],
 })
 export class SearchFormComponent implements OnInit {
   repos: any = [];
@@ -24,12 +25,8 @@ export class SearchFormComponent implements OnInit {
       this.repos = repos;
     });
   }
-  ngOnInit(): void {
-    this.dataService.getProfiles().subscribe((data) => {
-      this.profile = data;
-      console.log(data);
-    });
-  }
+  ngOnInit(): void {}
+  
   findProfile() {
     this.display = false;
     this.dataService.updateProfile(this.username);

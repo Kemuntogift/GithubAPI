@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { environment } from 'src/environments/environment';
 
 
@@ -9,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class DataService {
-  private user: any;
+  private profile: any;
   private username: string;
   private Url = 'https://api.github.com/users';
 
@@ -18,13 +17,13 @@ export class DataService {
   }
 
   ngOnInit() {
-  
+  //request
     this.http.get<any>('https://api.github.com/users').subscribe((data) => {
       this.username = data.total;
       console.log(this.username);
     });
   }
-  //get profile info
+  //get my info
   getdata() {
     return this.http.get('https://api.github.com/users/' + this.username);
   }
@@ -48,7 +47,7 @@ export class DataService {
     );
   }
 
-  getRepos(user: any) {
+  getRepos(profile: any) {
     let userrepo = this.http.get(
       'https://api.github.com/users/' +
         this.username +

@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { LpageComponent } from './lpage/lpage.component';
 import { DataService } from './data-service/data.service';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
-  declarations: [AppComponent, SearchFormComponent, LpageComponent],
+  declarations: [AppComponent, SearchFormComponent, LpageComponent, DateCountPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

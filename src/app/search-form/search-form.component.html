@@ -1,8 +1,8 @@
-<div class="form ">
-    <form class="search-form">
-        <div class="form-group my-4 ">
+<div class="container ">
+    <form action="">
+        <div class=" my-4 ">
             <div class="col ">
-                <input formControlName="username " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " [(ngModel)]="username" name="username" (keyup)=" findProfile() " required/>
+                <input class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " [(ngModel)]="username " name="username " (keyup)=" findProfile() " required/>
 
             </div>
 
@@ -11,14 +11,14 @@
 
     <!--Profile-->
     <!-- search profile -->
-    <div class="container" *ngIf="!display">
-        <div class="row">
-            <div class="col-md-4 mt-5 mx-auto">
+    <div class="container " *ngIf="!display ">
+        <div class="row ">
+            <div class="col-md-4 mt-5 mx-auto ">
 
-                <div class="profile">
+                <div class="profile ">
                     <h4>User Profile</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body ">
                     <div class="d-flex justify-content-center ">
                         <a href="# " class="avatar avatar-xl ">
                             <img class="rounded-circle " alt="... " src="{{profile.avatar_url}} ">
@@ -48,17 +48,17 @@
         </div>
         <!-- End of search profile -->
 
-        <div class="row justify-content-center repo">
+        <div class="row justify-content-center repo ">
             <h3>Repositories</h3>
-            <div class="col-sm-5 " *ngFor="let repo of repos">
-                <div class="card repocards">
-                    <div class="card-body">
+            <div class="col-sm-5 " *ngFor="let repo of repos ">
+                <div class="card repocards ">
+                    <div class="card-body ">
 
-                        <h5 class="card-title" appUnderline> reponame: {{repo.name}}</h5>
-                        <p class="card-text"> description <br> {{repo.description}} <br><br> Language:{{repo.language}}
+                        <h5 class="card-title " appUnderline> reponame: {{repo.name}}</h5>
+                        <p class="card-text "> description <br> {{repo.description}} <br><br> Language:{{repo.language}}
                         </p>
 
-                        <a href="{{repo.html_url}}" class="btn btn-dark">view in github</a>
+                        <a href="{{repo.html_url}} " class="btn btn-dark ">view in github</a>
                     </div>
                 </div>
             </div>
@@ -69,14 +69,14 @@
     </div>
 
     <!-- My profile -->
-    <div class="container" *ngIf="display">
-        <div class="row">
-            <div class="col-md-4 mt-5 mx-auto" *ngIf="info">
+    <div class="container " *ngIf="display ">
+        <div class="row ">
+            <div class="col-md-4 mt-5 mx-auto " *ngIf="info ">
 
-                <div class="profile">
+                <div class="profile ">
                     <h4>User Profile</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body ">
                     <div class="d-flex justify-content-center ">
                         <a href="# " class="avatar avatar-xl ">
                             <img class="rounded-circle " alt="... " src="{{info.avatar_url}} ">
@@ -106,17 +106,17 @@
         </div>
         <!-- End of my profile card -->
 
-        <div class="row justify-content-center repo">
+        <div class="row justify-content-center repo ">
             <h3>Repositories</h3>
-            <div class="col-sm-5 " *ngFor="let repo of repos">
-                <div class="card repocards">
-                    <div class="card-body">
+            <div class="col-sm-5 " *ngFor="let repo of repos ">
+                <div class="card repocards ">
+                    <div class="card-body ">
 
-                        <h5 class="card-title" appUnderline> reponame: {{repo.name}}</h5>
-                        <p class="card-text"> description <br> {{repo.description}} <br><br> Language:{{repo.language}}
+                        <h5 class="card-title " appUnderline> reponame: {{repo.name}}</h5>
+                        <p class="card-text "> description <br> {{repo.description}} <br><br> Language:{{repo.language}}
                         </p>
 
-                        <a href="{{repo.html_url}}" class="btn btn-dark">view in github</a>
+                        <a href="{{repo.html_url}} " class="btn btn-dark ">view in github</a>
                     </div>
                 </div>
             </div>
