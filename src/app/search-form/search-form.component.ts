@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+
 import { DataService } from '../data-service/data.service';
 
 
@@ -8,16 +8,21 @@ import { DataService } from '../data-service/data.service';
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
 })
-export class SearchFormComponent implements OnInit, OnDestroy{
-  title = 'githubApi';
+export class SearchFormComponent implements OnInit {
+  profile!: any[];
+  repos!: any[];
+  username!: string;
 
-  mySubscription: Subscription = new Subscription();
-  
+  constructor(private dataService: DataService) {
+    this.dataService.getdata().subscribe(profile => {
+    console.log(profile);
+    this.profile = profile;
+  });
+  this.dataService.getRepos().subscribe((repos) => {
+    console.log(repos);
+    this.repos = repos;
+  });
+}
 
-  
-  constructor(private dataService: DataService ) {}
-  ngOnDestroy(): void {
-    this.mySubscription.unsubscribe();
-  }
-  repos =[]
-  ngOnInit(): void {}}
+  ngOnInit(): void {}
+}

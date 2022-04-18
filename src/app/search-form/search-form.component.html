@@ -1,13 +1,17 @@
 <div class="form">
     <form>
-        <div class=" my-4 ">
+        <div class="form-group my-4 ">
             <div class="col ">
-                <input formControlName="username " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " required/>
-                <input formControlName="repository " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your repository " required=" ">
+                <input formControlName="username " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " [(ngModel)]="username" name="username" required/>
+
             </div>
 
-            <button type="submit " class="btn btn-outline-success text-uppercase my-3 ">
+            <button type="submit " class="btn btn-outline-success text-uppercase my-3" (search)=" findProfile() ">
             Search
           </button>
         </div>
     </form>
+
+    <!--Profile-->
+
+    <div *ngIf="profile " class="card-group " style="display: flex; "></div>

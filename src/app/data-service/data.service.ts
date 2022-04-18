@@ -22,7 +22,7 @@ export class DataService {
         this.apiKey
     );
   }
-  getProfileRepos() {
+  getRepos() {
     return this.http.get(
       'https://api.github.com/users/' +
         this.username +
