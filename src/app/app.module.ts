@@ -12,9 +12,10 @@ import { DataService } from './data-service/data.service';
 import { DateCountPipe } from './date-count.pipe';
 import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UnderlineDirective } from './underline.directive';
 
 @NgModule({
-  declarations: [AppComponent, SearchFormComponent, LpageComponent, DateCountPipe, AboutComponent, NavbarComponent],
+  declarations: [AppComponent, SearchFormComponent, LpageComponent, DateCountPipe, AboutComponent, NavbarComponent, UnderlineDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
