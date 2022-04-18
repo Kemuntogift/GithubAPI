@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { DataService } from '../data-service/data.service';
 
 
@@ -9,31 +8,24 @@ import { DataService } from '../data-service/data.service';
   styleUrls: ['./search-form.component.css'],
 })
 export class SearchFormComponent implements OnInit {
-  profile!: any[];
-  repos!: any[];
-  username!: string;
+  public repos: any = [];
+  public profiles: any = [];
+  public info: any = [];
 
   constructor(private dataService: DataService) {
-    this.dataService.getdata().subscribe(profile => {
-    console.log(profile);
-    this.profile = profile;
-  });
-  this.dataService.getRepos().subscribe((repos) => {
-    console.log(repos);
-    this.repos = repos;
-  });
-}
-findProfile() {
-    this.dataService.updateProfile(this.username);
-    this.dataService.getdata().subscribe((profile => {
-      console.log(profile);
-      this.profile = profile;
+    this.dataService.getdata().subscribe((info) => {
+      console.log(info);
+      this.info = info;
     });
-    this.dataService.getRepos().subscribe((repos => {
-      console.log(repos);
+    this.dataService.getRepos().subscribe((repos) => {
+      console.log('repo' + repos);
       this.repos = repos;
-    }));
+    });
   }
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService.getProfile().subscribe((data) => {
+      this.profiles = data;
+      console.log(data);
+    });
+  }
 }

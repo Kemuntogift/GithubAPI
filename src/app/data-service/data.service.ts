@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+// import { count } from 'console';
+// import { catchError, retry } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  private username!: string;
-  private apiKey = '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';
+  private user: any;
+  private username: string;
+  private _Url = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {
     console.log('service is ready');
