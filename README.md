@@ -2,15 +2,38 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
+## Author
+Gift Kemunto
+
+## Project Description
+This application enables a user to enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories.
+
+
+ ## Technologies Used
+* HTML 
+* CSS  
+* Bootstrap
+* Typescript
+
+ ## Project setup instruction
+ if you want to use this , clone the project or you can fork it and use it locally.
+
+ 
+## Requirements
+
+* You need either a desktop computer,phone,tablet or an Ipad
+
+* An access to the Internet and a browser.This will enable the user to have full functionalities of the application
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+ ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
@@ -18,10 +41,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## References
+* Youtube
+* Bootstrap
+* LMS 
+## Licence
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+MIT License https://opensource.org/licenses/MIT
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Copyright (c) [2022] [Gift Kemunto] 
