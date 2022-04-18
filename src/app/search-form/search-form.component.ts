@@ -23,6 +23,17 @@ export class SearchFormComponent implements OnInit {
     this.repos = repos;
   });
 }
+findProfile() {
+    this.dataService.updateProfile(this.username);
+    this.dataService.getdata().subscribe((profile => {
+      console.log(profile);
+      this.profile = profile;
+    });
+    this.dataService.getRepos().subscribe((repos => {
+      console.log(repos);
+      this.repos = repos;
+    }));
+  }
 
   ngOnInit(): void {}
 }
