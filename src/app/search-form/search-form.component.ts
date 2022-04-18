@@ -1,34 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data-service/data.service';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataService } from '../data-service/data.service';
+
 
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
 })
-export class SearchFormComponent implements OnInit {
-  username!: string;
-  isEmpty!: boolean;
-  dataService: DataService;
+export class SearchFormComponent implements OnInit, OnDestroy{
+  title = 'githubApi';
 
-  constructor(dataService: DataService, private router: Router) {
-    this.dataService = dataService;
-  }
+  mySubscription: Subscription = new Subscription();
+  
 
-  userSearch() {
-    if (this.username) {
-      this.dataService.getData(this.username);
-      this.router.navigate(['../results']);
-    } else {
-      this.isEmpty = true;
-    }
+  
+  constructor(private dataService: DataService ) {}
+  ngOnDestroy(): void {
+    this.mySubscription.unsubscribe();
   }
-  hideAlert() {
-    this.isEmpty = false;
-  }
-
-  ngOnInit(): void {
-    this.isEmpty = false;
-  }
-}
+  repos =[]
+  ngOnInit(): void {}}

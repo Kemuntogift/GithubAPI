@@ -1,11 +1,12 @@
 <div class="form">
-    <form (ngSubmit)="userSearch()">
+    <form>
         <div class=" my-4 ">
             <div class="col ">
-                <input class="name " type="text " id="name " name="name " [(ngModel)]="username" placeholder="Enter username" (focus)='hideAlert()' required/>
+                <input formControlName="username " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " required/>
+                <input formControlName="repository " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your repository " required=" ">
             </div>
-            <div class="text-danger alert" *ngIf='isEmpty'>Please fill out this field.</div>
-            <button type="submit " class="btn btn-outline-success text-uppercase my-3">
+
+            <button type="submit " class="btn btn-outline-success text-uppercase my-3 ">
             Search
           </button>
         </div>
