@@ -12,35 +12,57 @@ import { environment } from 'src/environments/environment';
 export class DataService {
   private user: any;
   private username: string;
-  private _Url = 'https://api.github.com/users';
+  private Url = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {
-    console.log('service is ready');
     this.username = 'Kemuntogift';
   }
 
+  ngOnInit() {
+    // GET request with response type <any>
+    this.http.get<any>('https://api.github.com/users').subscribe((data) => {
+      this.username = data.total;
+      console.log(this.username);
+    });
+  }
+  //get profile info
   getdata() {
+    return this.http.get('https://api.github.com/users/' + this.username);
+  }
+  //get repo information
+  getUserRepos() {
     return this.http.get(
-      'https://api.github.com/users/' +
-        this.username +
-        '?api_key=' +
-        this.apiKey
+      'https://api.github.com/users/' + this.username + '/repos'
     );
   }
-  getRepos() {
+
+  getProfiles() {
+    return this.http.get<any[]>(this.Url);
+  }
+
+  getProfileInfo() {
     return this.http.get(
       'https://api.github.com/users/' +
         this.username +
-        '?api_key=' +
-        this.apiKey
+        '?access_token=' +
+        environment.apiKey
     );
+  }
+
+  getRepos(user: any) {
+    let userrepo = this.http.get(
+      'https://api.github.com/users/' +
+        this.username +
+        '/repos?access_token=' +
+        environment.apiKey
+    );
+    console.log(userrepo);
+    return userrepo;
   }
   updateProfile(username: string) {
     this.username = username;
   }
 }
-
-  
 
  
 

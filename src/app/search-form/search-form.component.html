@@ -2,13 +2,10 @@
     <form>
         <div class="form-group my-4 ">
             <div class="col ">
-                <input formControlName="username " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " [(ngModel)]="username" name="username" required/>
+                <input formControlName="username " class="form-control w-25 d-inline mx-2 " type="text " placeholder="Enter your username " [(ngModel)]="username" name="username" (keyup)=" findProfile() " required/>
 
             </div>
 
-            <button type="submit " class="btn btn-outline-success text-uppercase my-3" (search)=" findProfile() ">
-            Search
-          </button>
         </div>
     </form>
 
