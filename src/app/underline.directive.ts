@@ -1,10 +1,20 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appUnderline]'
+  selector: '[appUnderline]',
 })
 export class UnderlineDirective {
+  constructor(private elem: ElementRef) {}
 
-  constructor() { }
+  @HostListener('click') onClicks() {
+    this.textDeco('underline');
+  }
 
+  @HostListener('dblclick') onDoubleClicks() {
+    this.textDeco('None');
+  }
+
+  private textDeco(action: string) {
+    this.elem.nativeElement.style.textDecoration = action;
+  }
 }
