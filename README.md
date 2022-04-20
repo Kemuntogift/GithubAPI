@@ -8,6 +8,9 @@ Gift Kemunto
 ## Project Description
 This application enables a user to enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories.
 
+## Link to live site
+https://kemuntogift.github.io/GithubAPI/
+
 
  ## Technologies Used
 * HTML 
